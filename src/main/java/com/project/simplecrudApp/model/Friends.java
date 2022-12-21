@@ -1,4 +1,4 @@
 package com.project.simplecrudApp.model;
 
-public class Products {
+public class Friends {
 }
