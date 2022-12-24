@@ -1,5 +1,7 @@
 package com.project.simplecrudApp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
@@ -14,7 +16,10 @@ public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @JsonProperty("first-name")
     private String firstname;
+    @JsonProperty("last-name")
     private String lastname;
-
+    @JsonIgnore
+    private int age;
 }
