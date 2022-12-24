@@ -5,10 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,4 +20,8 @@ public class Friends {
     private String lastname;
     @JsonIgnore
     private int age;
+    @Embedded
+    Address address;
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Family> families;
 }
