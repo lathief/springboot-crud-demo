@@ -16,6 +16,19 @@ public class FriendServiceImpl implements FriendService{
         return friendRepo.findAll();
     }
 
+    public Iterable<Friends> searchByFirstName(String firstname) {
+        return friendRepo.findByFirstName(firstname);
+    }
+
+    public Iterable<Friends> searchByLastName(String lastname) {
+        return friendRepo.findByLastName(lastname);
+    }
+
+    public Iterable<Friends> searchByBothNames(String firstname, String lastname) {
+        return friendRepo.findByBothName(firstname, lastname);
+    }
+
+
     @Override
     public Optional<Friends> findByID(Long id) {
         return friendRepo.findById(id);
@@ -25,7 +38,7 @@ public class FriendServiceImpl implements FriendService{
         return friendRepo.save(friend);
     }
 
-    public void edit(Long id, Friends friend) {
+    public void edit(Friends friend) {
         friendRepo.save(friend);
     }
 
